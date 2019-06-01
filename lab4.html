@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta charset="UTF-8">
+	    <style></style>
+	    <script src="localStorage.js"></script>
+    </head>
+    <body>
+	    <h2>Calculator</h2>
+	    <form>
+		    <input type="text" id="firstNum">
+		    <select id="opList" onChange="setValue()">
+			    <option value="">o</option>
+			    <option value="multiply">*</option>
+			    <option value="divide">/</option>
+		    </select>
+            <input type="button" id="button" value="+" onclick="handleClick2()">
+		    <input type="button" id="button" value="=" onclick="handleClick()">
+            <input type="button" id="button" value="C" onclick="handleClick3()">
+		    <input type="text" id="result" placeholder="0" readonly onfocus="this.blur();">
+	    </form>
+    </body>
+</html>
+
+<script>
+var firstNum;
+var second num;
+var selectValue;
+
+
+function handleClick() {
+    var result=1;
+    firstNum=parseInt(document.getElementById("firstNum").value);
+    secondNum=parseInt(document.getElementById("result").value);
+    
+function handleClick3() {
+    var result=0;
+    firstNum=0;
+    secondNum=0;
+    
+function handleClick2() {
+    var result=0;
+    firstNum=parseInt(document.getElementById("firstNum").value);
+    secondNum=parseInt(document.getElementById("result").value);
+    selectValue = "add";
+    var result;
+
+if(selectValue = "add") {
+	result = parseInt(firstNum + secondNum);
+    secondNum=result;
+} else if(selectValue = "multiply") {
+	result = parseInt(firstNum * secondNum);
+    secondNum=result;
+} else {
+	result = parseInt(firstNum/secondNum);
+    secondNum=result;
+}
+
+var output=document.getElementById("result");
+output.value=result;
+}
+
+function setValue() {
+    selectValue=document.getElementById("opList").value;
+}
+
+function init() {
+    var button=document.getElementById("button");
+    button.onclick=handleClick;
+}
+
+window.onload = init;
+</script>
